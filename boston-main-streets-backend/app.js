@@ -15,6 +15,7 @@ app.use(express.static('build'))
 app.use('/api/map', mapRouter)
 app.use('/api/business', businessRouter)
 app.use('/api/spending', spendingRouter)
+// An update
 
 app.get('/*', async (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'), (error) => {
