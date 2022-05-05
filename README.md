@@ -38,6 +38,7 @@ Frontend
 - setup dotenv file with environment variables using the sampleEnv.txt in the frontend directory
 
 `cd boston-main-streets-frontend`
+
 `npm install && npm start`
 
 Backend
@@ -45,4 +46,5 @@ Backend
 - setup environment variables using the sample file in the backend directory
 
 `cd boston-main-streets-backend`
-`npm install &&`
+
+`npm install && npm start`
