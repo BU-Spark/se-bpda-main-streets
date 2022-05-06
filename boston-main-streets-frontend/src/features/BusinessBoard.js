@@ -42,13 +42,21 @@ const BusinessesBoard = () => {
         )
     }
 
+    const setBusinessUpperCase = (business_name) => {
+        const words = business_name.split(" ");
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+        return words.join(" ");
+    }
+
     return (
         <>
         <FormControl type="search" onChange={({target}) => setKeyWord(target.value)} placeholder="Search" value={keyWord} />
                 <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '80vh'}} sx={{mt: 0.5}}>
                     {businessData.map((business, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={4}>
-                        <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {business.business_name.toUpperCase()} </Button>} text={`Address: ${business.street_address}`}>
+                        <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={`Address: ${business.street_address}`}>
                             <Row>
                                 <Col>
                                     <Button variant="link" onClick={() => handleView()}>Website</Button>

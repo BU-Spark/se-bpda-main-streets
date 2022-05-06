@@ -41,11 +41,11 @@ const DistrictList = () => {
     return (
         <Form>
             <Box sx={{ bgcolor: 'white', width: '50vh' }}>
-                <Grid container spacing={1} xs={12} style={{ flexGrow: '1', overflow: 'auto', maxHeight: '20vh'}}>
+                <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', maxHeight: '20vh'}}>
                     {bostonDistrictsName.map((name, index) => {
                         if (name === districtName) {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                                     <Form.Check
                                         key={index} label={name.replace('-', ' ')} name="list" type="radio" checked
                                         id={`inline-list-${index}`} onChange={() => handleChange(name)}
