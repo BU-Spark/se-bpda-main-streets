@@ -15,7 +15,7 @@ const TopBar = () => {
     }
 
     return (
-        <Navbar bg="light">
+        <Navbar bg="#F9F9F9">
             <Container>
                 <Navbar.Brand href="/">Boston-Main-Streets</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

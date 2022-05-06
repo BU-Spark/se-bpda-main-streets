@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { defaultDistrict } from "../reducers/districtReducer";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
+import { Container, Row, Col, ButtonGroup} from "react-bootstrap";
 import EmploymentBoard from "../features/EmploymentBoard";
 import BusinessBoard from "../features/BusinessBoard";
 import { removeMapBusiness } from "../reducers/mapBusinessReducer";
 import Button from '@mui/material/Button';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-
 
 
 const DashBoard = () => {
@@ -30,44 +26,31 @@ const DashBoard = () => {
         dispatch(removeMapBusiness())
     }
 
+
     const buttonStyle = {
-        backgroundImage: "url(" + "https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" + ")"
-    }
-
-    const handleChange = (event, newValue) => {
-        setTab(newValue);
-    };
-
-    const tabStyle = {
-        textTransform: 'capitalize',
-        color: 'black'
+          backgroundImage: "url(" + "https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" + ")"
     }
 
     return (
-        <Container fluid style={{ "height": "100vh" }}>
-            <Box sx={{ width: '100%' }}>
-                
-                <Tabs
-                    value={tab}
-                    onChange={handleChange}
-                    textColor="secondary"
-                    indicatorColor="secondary"
-                    // aria-label="secondary tabs example"
-                >
-                    <Button variant="outline-primary"><i className="bi bi-arrow-bar-left"></i></Button>
-                    <Tab value="Employment Data" label="Employment Data" style={tabStyle} />
-                    <Tab value="Life & Culture" label="Life & Culture" style={tabStyle} />
-                    <Tab value="Businesses" label="Businesses" style={tabStyle} />
-                </Tabs>
-            </Box>
+        <Container fluid style={{"height": "100vh"}}>
+            <Row className="justify-content-md-center">
+                <Col>
+                    <ButtonGroup>
+                        <Button variant="outline-primary"><i className="bi bi-arrow-bar-left"></i></Button>
+                        <Button variant="outline-primary" onClick={() => {setTab("Employment Data")}}>Employment Data</Button>
+                        <Button variant="outline-primary" onClick={() => {setTab("Life & Culture")}}>Life & Culture</Button>
+                        <Button variant="outline-primary" onClick={() => {setTab("Businesses")}}>Businesses</Button>
+                    </ButtonGroup>
+                </Col>
+            </Row>
 
             <Row>
-                <h1>
-                    {districtName.replace('-', ' ').toUpperCase()}
-                    <Button variant="text" size="small" onClick={() => handleBack()}>
-                        <img src="https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" width="30" alt="folder" />
-                    </Button>
-                </h1>
+                    <h1>
+                        {districtName.replace('-', ' ').toUpperCase()}
+                        <Button variant="text" size="small" onClick={() => handleBack()}>
+                            <img src="https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" width="30" alt="folder"/>
+                        </Button> 
+                    </h1>
             </Row>
 
             {tab === "Employment Data" && <EmploymentBoard />}
