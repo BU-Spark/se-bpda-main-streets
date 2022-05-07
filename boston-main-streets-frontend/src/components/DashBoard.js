@@ -61,8 +61,11 @@ const DashBoard = () => {
                 <Tabs
                     value={tab}
                     onChange={handleChange}
-                    textColor="secondary"
-                    indicatorColor="secondary"
+                    TabIndicatorProps={{
+                        style: {
+                          backgroundColor: "0066CC"
+                         }
+                        }}
                 >
                     <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
                     <Tab value="Employment Data" label="Employment Data" style={tabStyle} />
