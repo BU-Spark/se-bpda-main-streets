@@ -3,32 +3,29 @@ import { Container, Row, Col } from "react-bootstrap";
 import TopBar from "../components/TopBar";
 import DashBoard from "../components/DashBoard";
 import MainMap from "../features/MainMap";
-import { experimental_extendTheme } from "@mui/material";
-import Button from '@mui/material/Button';
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
 
-    const [boo, setBoo] = useState(true)
+    // current redux state on whether the window is collapsed or expanded
+    const isExpanded = useSelector(state => state.windowSize);
+    const smallSize = 8;
+    const largeSize = 4;
+
     return (
         <div>
             <TopBar />
             <Container fluid>
                 <Row>
-                    {
-                        boo == true
-                        ?<Button variant="outline-primary" onClick={() => setBoo(!boo)}><i className="bi bi-arrow-bar-left"></i></Button>
-                        :<Button variant="outline-primary" onClick={() => setBoo(!boo)}><i className="bi bi-arrow-bar-right"></i></Button>
-                    }
-                    <Col xs={12} sm={4} md={4} lg={boo == true?9:3}>
+                    <Col xs={isExpanded == true ? smallSize : largeSize}>
                         <MainMap />
                     </Col>
-                    <Col xs={12} sm={4} md={4} lg={boo == true?3:9}>
+                    <Col xs={isExpanded == true ? largeSize : smallSize}>
                         <DashBoard />
                     </Col>
                 </Row>
             </Container>
         </div>
-        
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Button, FormControl } from "react-bootstrap";
 import CardItem from "../components/BusinessCardItem";
@@ -12,12 +12,14 @@ const BusinessesBoard = () => {
     const [modificationMode, setModificationMode] = useState(false)
     const [oneBusiness, setOneBusiness] = useState(null)
     const [keyWord, setKeyWord] = useState('')
+    const [containerSize, setContainerSize] = useState(3)
 
     // redux states: business, user
     const businessData = useSelector(({ business }) => business).filter((business) => (
         business.business_name.toLowerCase().includes(keyWord.toLowerCase())
     ))
     const user = useSelector(({ user }) => user)
+    const currentWindowSize = useSelector(state => state.windowSize)
     const dispatch = useDispatch()
 
     // handle view, update and back
@@ -32,6 +34,17 @@ const BusinessesBoard = () => {
         setOneBusiness(null)
         setModificationMode(false)
     }
+
+    // update the number of business cards in a single column depending on window size
+    useEffect(() => {
+        if (currentWindowSize === true) {
+            setContainerSize(6)
+        } 
+        else {
+            setContainerSize(3)
+        }
+    }, [currentWindowSize])
+
 
     if (modificationMode) {
         return (
@@ -55,7 +68,7 @@ const BusinessesBoard = () => {
         <FormControl type="search" onChange={({target}) => setKeyWord(target.value)} placeholder="Search" value={keyWord} />
                 <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '80vh'}} sx={{mt: 0.5}}>
                     {businessData.map((business, index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={6}>
+                    <Grid item xs={12} sm={6} md={4} lg={containerSize}>
                         <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={`Address: ${business.street_address}`}>
                             <Row>
                                 <Col>

@@ -8,6 +8,7 @@ import mapDistrictsReducer from "./reducers/mapDistrictsReducer";
 import mapBusinessReducer from "./reducers/mapBusinessReducer";
 import businessReducer from "./reducers/businessReducer";
 import userReducer from "./reducers/userReducer";
+import windowSizeReducer from "./reducers/windowSizeReducer";
 
 const reducer = combineReducers({
     district: districtReducer,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
     mapDistricts: mapDistrictsReducer,
     mapBusiness: mapBusinessReducer,
     business: businessReducer,
-    user: userReducer
+    user: userReducer,
+    windowSize: windowSizeReducer,
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

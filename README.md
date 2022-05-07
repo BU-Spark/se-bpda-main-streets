@@ -7,21 +7,24 @@ This is part of a broader initiative to understand the current environment in Bo
 Visit the deployed Boston Main Street District Viewer [here]()
 
 Team members:
+
 - Meng-Hsin Cheng
 - Austin Wang
 - Junan Zhu
 
 ## Technical Architecture
 
-Frontend: 
- - React.js
+Frontend:
+
+- React.js
 
 Backend:
- - Node.js
+
+- Node.js
 
 Database:
- - Firebase
 
+- Firebase
 
 Diagram:
 
