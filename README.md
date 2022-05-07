@@ -1,6 +1,6 @@
-# boston-main-streets
+# Boston-Main-Streets
 
-Boston Main Street District Viewer is a project from the BPDA Research Division and Boston University Spark. This interactive map combines public data and anonymized data from private companies to visualize the characteristics of Boston Main Street Districts and the impact of COVID-19 pandemic on the economic prospects of businesses and people in each district.
+Boston Main Streets District Viewer is a project from the BPDA Research Division and Boston University Spark. This interactive map combines public data and anonymized data from private companies to visualize the characteristics of Boston Main Street Districts and the impact of COVID-19 pandemic on the economic prospects of businesses and people in each district.
 
 This is part of a broader initiative to understand the current environment in Boston. More research produced by the Boston Planning and Development Agency can be found on the BPDA Research Website: www.bostonplans.org/research
 
@@ -21,6 +21,15 @@ Backend:
 
 Database:
  - Firebase
+
+
+Diagram:
+
+![TechnicalArchitecture](Documentation/Architecture.png)
+
+<br>
+
+![Markitecture](Documentation/Markitecture.png)
 
 ### Deployment
 
