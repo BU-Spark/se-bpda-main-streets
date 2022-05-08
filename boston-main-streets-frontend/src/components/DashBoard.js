@@ -11,6 +11,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { expand, collapse } from "../services/windowService"
+import logo from '../static/logo.png';
 
 
 
@@ -77,7 +78,7 @@ const DashBoard = () => {
                 <h1>
                     {districtName.replace('-', ' ').toUpperCase()}
                     <Button variant="text" size="small" onClick={() => handleBack()}>
-                        <img src="https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" width="30" alt="folder" />
+                        <img src={logo} width="30" alt="logo" style={{marginBottom: '3px'}} />
                     </Button>
                 </h1>
             </Row>

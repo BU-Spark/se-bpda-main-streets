@@ -1,12 +1,15 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 const BusinessCardItem = (props) => {
     return (
-        <Card style={{ height: '12rem' }}>
+        <Card style={{minHeight: '80px', height: '100%'}}>
             <Card.Body>
-                <Card.Title>{props.title}</Card.Title>
-                <Card.Text>{props.text}</Card.Text>
+                <Card.Title style={{display: 'flex', justifyContent: 'center', }}>{props.title}</Card.Title>
+                <Card.Text className="text-muted">{props.text}</Card.Text>
+                <Card.Text>
+                    Some example text description about the business
+                </Card.Text>
             </Card.Body>
             {props.children}
         </Card>
