@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useSelector } from "react-redux";
 
 // styling
 const modalStyle = {
@@ -36,7 +37,6 @@ function ChildModal() {
     // about project modal
     const aboutProject = `Boston Main Street District Viewer is a project from the BPDA research Division and Boston University Spark. This interactive map combines public data and anonymized data from private companies to visualize the characteristics of Boston Main Street Districts and the impact of the COVID-19 pandemic on the economic prospects of businesses and people in each district. Click on the map and explore the Main Street Districts that bring our city to life. `
     const aboutProject2 = `This is a part of a broader initiative to understand the current environment in Boston.More research produced by the Boston Planning and Development Agency can be found on the BPDA Research Website: www.bostonplans.org / research.`
-
 
     return (
         <>
@@ -72,7 +72,7 @@ function ChildModal() {
 }
 
 const MapItem = (props) => {
-
+    const isEx = useSelector(state => state.windowSize)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -89,9 +89,12 @@ const MapItem = (props) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {props.children}
+                {(isEx == true) ? (
                 <Control position={"topleft"}>
                     <DistrictList />
                 </Control>
+                ):<></>
+                }
                 <Control position={"bottomleft"}>
                     <div>
                         <ChildModal />
