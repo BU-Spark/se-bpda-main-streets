@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, CardGroup, Accordion } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CardItem from "../components/CardItem";
+import Grid from '@mui/material/Grid'
 
 const EmploymentBoard = () => {
 
@@ -11,13 +12,17 @@ const EmploymentBoard = () => {
     const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a+b, 0) 
     const totalBusiness = businesses.length  
     const averageEmp = Math.floor(totalEmp / totalBusiness).toLocaleString('en-US');  
+    const isExpanded = useSelector(state => state.windowSize)
+    const topSmallSize = 6;
+    const butSmallSize = 12;
+    const largeSize = 4;
+
 
     const cardTitles = [
         { title: "Estimated Number of Employees:", text: totalEmp.toLocaleString('en-US') },
         { title: "Total Number of Businesses:", text: totalBusiness.toLocaleString('en-US') },
     ]
-
-    const cardTitlesEmployment = [
+    const cardTitleEm = [
         { title: "Average Employment Size:", text: averageEmp + " Per Business" }
     ]
 
@@ -27,28 +32,26 @@ const EmploymentBoard = () => {
         )
     }
 
+
+
     const localStyle = {
         marginTop: '10px',
     };
     return (
         <>
-            <Row>
-                <Col>
-                    <CardGroup>
-                        {cardTitles.map((card, index) => (
-                            <CardItem key={index} title={card.title} text={card.text} />
-                        ))}
-                    </CardGroup>
-                    <CardGroup style={localStyle}>
-                        {cardTitlesEmployment.map((card, index) => (
-                            <CardItem key={index} title={card.title} text={card.text} />
-                        ))}
-                    </CardGroup>
-                </Col>
-            </Row>
-
+        <Grid container spacing={1}>
+            {cardTitles.map((card, index) => (
+                            <Grid item xs={12} sm={6} md={6} lg={isExpanded == true ? topSmallSize : largeSize}>
+                                <CardItem key={index} title={card.title} text={card.text} />
+                            </Grid>
+            ))}
+            {cardTitleEm.map((card, index) => (
+                            <Grid item xs={12} sm={6} md={6} lg={isExpanded == true ? butSmallSize : largeSize}>
+                                <CardItem key={index} title={card.title} text={card.text} />
+                            </Grid>
+            ))}
             {(districtName !== "Boston") ? (
-                <Row>
+                <Grid item xs={12} sm={6} md={6} lg={12}>
                     <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>Employment</Accordion.Header>
@@ -63,10 +66,11 @@ const EmploymentBoard = () => {
                             <Accordion.Body>1010</Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                </Row>
+                </Grid>
             ) : <></>}
+            </Grid>
         </>
     )
-}
+    }
 
 export default EmploymentBoard

@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../reducers/userReducer";
+import logo from '../static/logo.png';
 
 const TopBar = () => {
 
@@ -15,9 +16,9 @@ const TopBar = () => {
     }
 
     return (
-        <Navbar bg="light">
-            <Container>
-                <Navbar.Brand href="/">Boston-Main-Streets</Navbar.Brand>
+        <Navbar bg="#F9F9F9">
+                <img src={logo} width="25" alt="logo" style={{marginLeft: '20px', marginRight: '10px'}} />
+                <Navbar.Brand href="/">Boston Main Streets</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav>
@@ -36,7 +37,6 @@ const TopBar = () => {
                         }
                     </Nav>
                 </Navbar.Collapse>
-            </Container>
         </Navbar>
     )
 }
