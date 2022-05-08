@@ -69,7 +69,7 @@ const BusinessesBoard = () => {
                 <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '80vh'}} sx={{mt: 0.5}}>
                     {businessData.map((business, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={containerSize}>
-                        <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={`${business.street_address}`}>
+                        <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
                             <Row>
                                 <Col>
                                     <Button variant="link" onClick={() => handleView()}>Website</Button>
@@ -78,7 +78,7 @@ const BusinessesBoard = () => {
                                     {
                                         user
                                             ? <Button variant="link" onClick={() => handleUpdate(business)}>Update</Button>
-                                            : <Button variant="link" onClick={() => handleUpdate(business)} disabled>Update</Button>
+                                            : <></>
                                     }
                                 </Col>
                             </Row>
