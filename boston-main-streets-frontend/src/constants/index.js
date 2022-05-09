@@ -18,6 +18,31 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 
-// if (window.location.hostname === "localhost") {
-//     connectAuthEmulator(auth, "http://localhost:9099")
-// }
+// emulators:auth
+if (window.location.hostname === "localhost") {
+    connectAuthEmulator(auth, "http://localhost:9099")
+}
+
+// districts
+export const districts = [
+    "Allston-Village",
+    "Bowdoin-Geneva",
+    "Brighton",
+    "Centre-South",
+    "Chinatown",
+    "Dudley-Square",
+    "East-Boston",
+    "Egleston-Square",
+    "Fields-Corner",
+    "Four-Corners",
+    "Greater-Ashmont",
+    "Grove-Hall",
+    "Hyde-Park",
+    "Mattapan",
+    "Mission-Hill",
+    "Roslindale-Village",
+    "Three-Squares",
+    "Uphams-Corner",
+    "Washington-St-Gateway",
+    "West-Roxbury"
+]
