@@ -21,11 +21,11 @@ spendingRouter.get('/:district', async (req, res) => {
 spendingRouter.post('/:district', async (req, res) => {
     // list of data {date, data}
     const data = req.body
+    console.log(data)
     const district = req.params.district
     let order = 1
-    console.log(data)
     for (let point of data) {
-        const key = push(child(ref(fireDb), `spending/${district}`))
+        const key = push(child(ref(fireDb), `spending/${district}`)).key
         point.order = order
         await set(ref(fireDb, `spending/${district}/${key}`), point)
         order += 1
