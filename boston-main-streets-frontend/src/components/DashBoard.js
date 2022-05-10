@@ -12,6 +12,9 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { expand, collapse } from "../services/windowService"
 import logo from '../static/logo.png';
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import Grid from '@mui/material/Grid'
+
 
 
 
@@ -53,39 +56,51 @@ const DashBoard = () => {
 
     const tabStyle = {
         textTransform: 'capitalize',
-        color: 'black'
+        color: 'black',
+        backgroundColor: 'white'
     }
 
+    const useStyles = makeStyles(() =>
+        createStyles({
+            indicator: {
+                backgroundColor: 'black',
+            },
+            flex: {
+                marginTop: '14px',
+                marginBottom: '14px',
+            },
+        })
+    );
+
     return (
-        <Container fluid style={{ "height": "100vh" }}>
-            <>
+        <Box style={{ "height": "100vh" }}>
+            <Grid container justifyContent="space-between">
+                <Grid item>
+                    <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
+                </Grid>
                 <Tabs
                     value={tab}
                     onChange={handleChange}
-                    TabIndicatorProps={{
-                        style: {
-                          backgroundColor: "0066CC"
-                         }
-                        }}
+                    TabIndicatorProps={{ style: { backgroundColor: "0066CC" } }}
+                    variant='scrollable'
                 >
-                    <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
                     <Tab value="Employment Data" label="Employment Data" style={tabStyle} />
                     <Tab value="Life & Culture" label="Life & Culture" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
                 </Tabs>
-            </>
-            <Row>
+            </Grid>
+            <div>
                 <h1>
                     {districtName.replace('-', ' ').toUpperCase()}
                     <Button variant="text" size="small" onClick={() => handleBack()}>
-                        <img src={logo} width="30" alt="logo" style={{marginBottom: '3px'}} />
+                        <img src={logo} width="30" alt="logo" style={{ marginBottom: '3px' }} />
                     </Button>
                 </h1>
-            </Row>
+            </div>
 
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
-        </Container>
+        </Box>
     )
 }
 

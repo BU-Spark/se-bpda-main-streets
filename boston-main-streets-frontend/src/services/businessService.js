@@ -1,5 +1,8 @@
 import axios from "axios";
-const baseURL = '/api/business'
+const prefix = (process.env.REACT_APP_ENVIRONMENT === "DEV") ? (process.env.REACT_APP_URL_BACKEND) : ""
+const baseURL = `${prefix}/api/business`
+// const baseURL = '/api/business'
+
 
 const getAllBusiness = async () => {
     const res = await axios.get(baseURL)

@@ -17,10 +17,10 @@ const MainPage = () => {
             <TopBar />
             <Container fluid>
                 <Row>
-                    <Col xs={isExpanded == true ? smallSize : largeSize}>
+                    <Col xs={isExpanded === true ? smallSize : largeSize}>
                         <MainMap />
                     </Col>
-                    <Col xs={isExpanded == true ? largeSize : smallSize}>
+                    <Col xs={isExpanded === true ? largeSize : smallSize}>
                         <DashBoard />
                     </Col>
                 </Row>
