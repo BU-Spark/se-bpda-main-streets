@@ -79,10 +79,6 @@ const UploadPage = () => {
             {jsonList && (
                 <Button variant="secondary" onClick={() => handleUpload()}>Upload</Button>
             )}
-            {/* line graph test */}
-            {jsonList && (
-                <LineGraph data={jsonList} labelName={"date"} dataName={"data"} />
-            )}
         </div>
     )
 }
