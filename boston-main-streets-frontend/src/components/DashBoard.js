@@ -63,6 +63,7 @@ const DashBoard = () => {
     }
 
     const districtNameStyle = isExpanded === true ? { fontSize: 36, marginTop: '10px' } : { fontSize: 72, marginTop: '10px' }
+    const logoStyle = isExpanded === true ? '30px' : '60px'
 
     return (
         <Box style={{ "height": "100vh" }}>
@@ -85,7 +86,7 @@ const DashBoard = () => {
                 <h1 style={districtNameStyle}>
                     {districtName.replace('-', ' ').toUpperCase()}
                     {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
-                        <img src={logo} width="30" alt="logo" />
+                        <img src={logo} width={logoStyle} alt="logo" style={{marginBottom: '8px', marginLeft: '3px'}} />
                     </Button> : <></>}
                 </h1>
             </div>
