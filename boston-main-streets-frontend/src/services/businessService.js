@@ -1,6 +1,5 @@
 import axios from "axios";
-const prefix = (process.env.REACT_APP_ENVIRONMENT === "DEV") ? (process.env.REACT_APP_URL_BACKEND) : ""
-const baseURL = `${prefix}/api/business`
+const baseURL = 'https://se-bpda-main-streets.herokuapp.com/api/business'
 // const baseURL = '/api/business'
 
 

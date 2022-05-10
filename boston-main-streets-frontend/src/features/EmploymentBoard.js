@@ -46,12 +46,12 @@ const EmploymentBoard = () => {
                             </Grid>
             ))}
             {cardTitleEm.map((card, index) => (
-                            <Grid item xs={12} sm={6} md={6} lg={isExpanded == true ? butSmallSize : largeSize}>
+                            <Grid item xs={12} sm={12} md={12} lg={isExpanded == true ? butSmallSize : largeSize}>
                                 <CardItem key={index} title={card.title} text={card.text} />
                             </Grid>
             ))}
             {(districtName !== "Boston") ? (
-                <Grid item xs={12} sm={6} md={6} lg={12}>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>Employment</Accordion.Header>
