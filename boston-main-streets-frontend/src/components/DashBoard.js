@@ -27,6 +27,7 @@ const DashBoard = () => {
     // redux states
     const districtName = useSelector(({ district }) => district)
     const dispatch = useDispatch()
+    const isExpanded = useSelector(state => state.windowSize)
 
     // react router
     const history = useHistory()
@@ -60,17 +61,7 @@ const DashBoard = () => {
         backgroundColor: 'white'
     }
 
-    const useStyles = makeStyles(() =>
-        createStyles({
-            indicator: {
-                backgroundColor: 'black',
-            },
-            flex: {
-                marginTop: '14px',
-                marginBottom: '14px',
-            },
-        })
-    );
+    const districtNameStyle = isExpanded === true ? {fontSize: 36, marginTop: '10px'} : {fontSize: 72, marginTop: '10px'}
 
     return (
         <Box style={{ "height": "100vh" }}>
@@ -90,11 +81,11 @@ const DashBoard = () => {
                 </Tabs>
             </Grid>
             <div>
-                <h1>
+                <h1 style={districtNameStyle}>
                     {districtName.replace('-', ' ').toUpperCase()}
-                    <Button variant="text" size="small" onClick={() => handleBack()}>
-                        <img src={logo} width="30" alt="logo" style={{ marginBottom: '3px' }} />
-                    </Button>
+                    {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleBack()}>
+                        <img src={logo} width="30" alt="logo" />
+                    </Button> : <></>}
                 </h1>
             </div>
 
