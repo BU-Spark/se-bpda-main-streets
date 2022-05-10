@@ -7,6 +7,7 @@ import mapBoundaryReducer from "./reducers/mapBoundaryReducer";
 import mapDistrictsReducer from "./reducers/mapDistrictsReducer";
 import mapBusinessReducer from "./reducers/mapBusinessReducer";
 import businessReducer from "./reducers/businessReducer";
+import boardDataReducer from "./reducers/boardDataReducer";
 import userReducer from "./reducers/userReducer";
 import windowSizeReducer from "./reducers/windowSizeReducer";
 
@@ -16,6 +17,7 @@ const reducer = combineReducers({
     mapDistricts: mapDistrictsReducer,
     mapBusiness: mapBusinessReducer,
     business: businessReducer,
+    boardData: boardDataReducer,
     user: userReducer,
     windowSize: windowSizeReducer,
 })

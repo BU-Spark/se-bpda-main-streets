@@ -8,7 +8,7 @@ const LineGraph = ({data, labelName, dataName}) => {
         <Line
             datasetIdKey="data"
             data={{
-                labels: data.map((item) => item[`${labelName}`]),
+                labels: (labelName) ? data.map((item) => item[`${labelName}`]) : [],
                 datasets: [
                     {
                         id: "data",

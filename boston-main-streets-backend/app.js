@@ -6,7 +6,7 @@ require('express-async-errors')
 // controllers
 const mapRouter = require('./controllers/mapRouter')
 const businessRouter = require('./controllers/businessRouter')
-const spendingRouter = require('./controllers/spendingRouter')
+const dataRouter = require('./controllers/dataRouter')
 
 app.use(cors())
 app.use(express.json())
@@ -14,7 +14,7 @@ app.use(express.static('build'))
 
 app.use('/api/map', mapRouter)
 app.use('/api/business', businessRouter)
-app.use('/api/spending', spendingRouter)
+app.use('/api/data', dataRouter)
 // An update
 
 app.get('/*', async (req, res) => {

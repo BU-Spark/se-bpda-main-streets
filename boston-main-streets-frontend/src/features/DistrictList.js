@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import { nameRule } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDistrict } from "../reducers/districtReducer";
+import { getSpendingData, getMobilityData } from "../reducers/boardDataReducer";
 import { useHistory } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
@@ -36,6 +37,8 @@ const DistrictList = () => {
     // handle list selection
     const handleChange = (name) => {
         dispatch(changeDistrict(name))
+        dispatch(getSpendingData(name))
+        dispatch(getMobilityData(name))
     }
 
     return (
@@ -45,18 +48,18 @@ const DistrictList = () => {
                     {bostonDistrictsName.map((name, index) => {
                         if (name === districtName) {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                                <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
                                     <Form.Check
-                                        key={index} label={name.replace('-', ' ')} name="list" type="radio" checked
+                                        label={name.replace('-', ' ')} name="list" type="radio" checked
                                         id={`inline-list-${index}`} onChange={() => handleChange(name)}
                                     />
                                 </Grid>
                             )
                         } else {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
                                     <Form.Check
-                                        key={index} label={name.replace('-', ' ')} name="list" type="radio"
+                                        label={name.replace('-', ' ')} name="list" type="radio"
                                         id={`inline-list-${index}`} onChange={() => handleChange(name)}
                                     />
                                 </Grid>
