@@ -47,12 +47,13 @@ const DashBoard = () => {
         else setExpandButton("bi bi-arrow-bar-left")
     }
 
-    const buttonStyle = {
-        backgroundImage: "url(" + "https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" + ")"
-    }
-
     const handleChange = (event, newValue) => {
         setTab(newValue);
+    };
+
+    // open external window on main street page
+    const handleClick = () => {
+        window.open("https://bostonmainstreets.org/");
     };
 
     const tabStyle = {
@@ -61,7 +62,7 @@ const DashBoard = () => {
         backgroundColor: 'white'
     }
 
-    const districtNameStyle = isExpanded === true ? {fontSize: 36, marginTop: '10px'} : {fontSize: 72, marginTop: '10px'}
+    const districtNameStyle = isExpanded === true ? { fontSize: 36, marginTop: '10px' } : { fontSize: 72, marginTop: '10px' }
 
     return (
         <Box style={{ "height": "100vh" }}>
@@ -83,7 +84,7 @@ const DashBoard = () => {
             <div>
                 <h1 style={districtNameStyle}>
                     {districtName.replace('-', ' ').toUpperCase()}
-                    {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleBack()}>
+                    {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
                         <img src={logo} width="30" alt="logo" />
                     </Button> : <></>}
                 </h1>
