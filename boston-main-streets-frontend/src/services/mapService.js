@@ -1,6 +1,4 @@
 import axios from "axios";
-// const prefix = (process.env.REACT_APP_ENVIRONMENT === "DEV") ? (process.env.REACT_APP_URL_BACKEND) : ""
-// const baseURL = `${prefix}/api/map`
 const baseURL = '/api/map'
 
 const getBostonBoundary = async () => {
