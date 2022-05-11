@@ -14,19 +14,19 @@ const MainPage = () => {
 
     return (
         <div>
-            <TopBar />
+        <TopBar />
             <Container fluid>
                 <Row>
-                    <Col xs={isExpanded == true ? smallSize : largeSize}>
+                    <Col xs={isExpanded === true ? smallSize : largeSize}>
                         <MainMap />
                     </Col>
-                    <Col xs={isExpanded == true ? largeSize : smallSize}>
+                    <Col xs={isExpanded === true ? largeSize : smallSize}>
                         <DashBoard />
                     </Col>
                 </Row>
             </Container>
         </div>
     )
-}
+    }
 
 export default MainPage

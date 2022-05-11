@@ -46,3 +46,8 @@ export const districts = [
     "Washington-St-Gateway",
     "West-Roxbury"
 ]
+
+// data types
+export const dataTypes = [
+    "spending", "mobility"
+]

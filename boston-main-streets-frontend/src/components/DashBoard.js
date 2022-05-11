@@ -12,6 +12,9 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { expand, collapse } from "../services/windowService"
 import logo from '../static/logo.png';
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import Grid from '@mui/material/Grid'
+
 
 
 
@@ -24,6 +27,7 @@ const DashBoard = () => {
     // redux states
     const districtName = useSelector(({ district }) => district)
     const dispatch = useDispatch()
+    const isExpanded = useSelector(state => state.windowSize)
 
     // react router
     const history = useHistory()
@@ -43,49 +47,53 @@ const DashBoard = () => {
         else setExpandButton("bi bi-arrow-bar-left")
     }
 
-    const buttonStyle = {
-        backgroundImage: "url(" + "https://patronicity.s3.amazonaws.com/static/SponsorLogos/BMS_Icon_NoTag_RGB.JPG" + ")"
-    }
-
     const handleChange = (event, newValue) => {
         setTab(newValue);
     };
 
+    // open external window on main street page
+    const handleClick = () => {
+        window.open("https://bostonmainstreets.org/");
+    };
+
     const tabStyle = {
         textTransform: 'capitalize',
-        color: 'black'
+        color: 'black',
+        backgroundColor: 'white'
     }
 
+    const districtNameStyle = isExpanded === true ? { fontSize: 36, marginTop: '10px' } : { fontSize: 72, marginTop: '10px' }
+    const logoStyle = isExpanded === true ? '30px' : '60px'
+
     return (
-        <Container fluid style={{ "height": "100vh" }}>
-            <>
+        <Box style={{ "height": "100vh" }}>
+            <Grid container justifyContent="space-between">
+                <Grid item>
+                    <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
+                </Grid>
                 <Tabs
                     value={tab}
                     onChange={handleChange}
-                    TabIndicatorProps={{
-                        style: {
-                          backgroundColor: "0066CC"
-                         }
-                        }}
+                    TabIndicatorProps={{ style: { backgroundColor: "0066CC" } }}
+                    variant='scrollable'
                 >
-                    <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
                     <Tab value="Employment Data" label="Employment Data" style={tabStyle} />
                     <Tab value="Life & Culture" label="Life & Culture" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
                 </Tabs>
-            </>
-            <Row>
-                <h1>
+            </Grid>
+            <div>
+                <h1 style={districtNameStyle}>
                     {districtName.replace('-', ' ').toUpperCase()}
-                    <Button variant="text" size="small" onClick={() => handleBack()}>
-                        <img src={logo} width="30" alt="logo" style={{marginBottom: '3px'}} />
-                    </Button>
+                    {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
+                        <img src={logo} width={logoStyle} alt="logo" style={{marginBottom: '8px', marginLeft: '3px'}} />
+                    </Button> : <></>}
                 </h1>
-            </Row>
+            </div>
 
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
-        </Container>
+        </Box>
     )
 }
 

@@ -22,11 +22,12 @@ const modalStyle = {
     px: 4,
     pb: 3,
 };
-const aboutButtonStyle = {backgroundColor: '#0066cc', color: 'white'};
-const closeButtonStyle = {color: 'black'};
 
 function ChildModal() {
     const [open, setOpen] = React.useState(false);
+    let bColor = open === false ? '#0066cc' : '#CC0062'
+    const aboutButtonStyle = { backgroundColor: bColor, color: 'white' };
+    const closeButtonStyle = { color: 'black' };
     const handleOpen = () => {
         setOpen(true);
     };
@@ -50,7 +51,7 @@ function ChildModal() {
                     aria-describedby="child-modal-description"
                 >
                     <Box sx={modalStyle}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2" style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" style={{ display: 'flex', justifyContent: 'space-between' }}>
                             About the Project <Button onClick={handleClose} style={closeButtonStyle}>X</Button>
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2, ml: 2 }}>
@@ -63,7 +64,6 @@ function ChildModal() {
                             <img src="https://anad.org/wp-content/uploads/2017/09/BU-logo.png" width="100" height="70"></img>
                             <img src="https://www.southbostontoday.com/wp-content/uploads/2020/04/1200px-BPDA_Logo-696x238.png" width="200" height="70"></img>
                         </>
-                        
                     </Box>
                 </Modal>
             </React.Fragment>
@@ -90,10 +90,10 @@ const MapItem = (props) => {
                 />
                 {props.children}
                 {(isEx == true) ? (
-                <Control position={"topleft"}>
-                    <DistrictList />
-                </Control>
-                ):<></>
+                    <Control position={"topleft"}>
+                        <DistrictList />
+                    </Control>
+                ) : <></>
                 }
                 <Control position={"bottomleft"}>
                     <div>

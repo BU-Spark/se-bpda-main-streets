@@ -1,6 +1,7 @@
 import axios from "axios";
 const baseURL = '/api/business'
 
+
 const getAllBusiness = async () => {
     const res = await axios.get(baseURL)
     return res.data

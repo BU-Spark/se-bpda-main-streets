@@ -1,43 +1,43 @@
-[debug] [2022-05-09T20:04:40.892Z] ----------------------------------------------------------------------
-[debug] [2022-05-09T20:04:40.893Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2022-05-09T20:04:40.894Z] CLI Version:   10.4.1
-[debug] [2022-05-09T20:04:40.894Z] Platform:      darwin
-[debug] [2022-05-09T20:04:40.894Z] Node Version:  v16.13.1
-[debug] [2022-05-09T20:04:40.895Z] Time:          Mon May 09 2022 16:04:40 GMT-0400 (Eastern Daylight Time)
-[debug] [2022-05-09T20:04:40.895Z] ----------------------------------------------------------------------
+[debug] [2022-05-10T20:12:45.487Z] ----------------------------------------------------------------------
+[debug] [2022-05-10T20:12:45.488Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2022-05-10T20:12:45.489Z] CLI Version:   10.4.1
+[debug] [2022-05-10T20:12:45.489Z] Platform:      darwin
+[debug] [2022-05-10T20:12:45.489Z] Node Version:  v16.13.1
+[debug] [2022-05-10T20:12:45.490Z] Time:          Tue May 10 2022 16:12:45 GMT-0400 (Eastern Daylight Time)
+[debug] [2022-05-10T20:12:45.490Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-05-09T20:04:40.974Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-05-09T20:04:40.974Z] > authorizing via signed-in user (yyaustin@bu.edu)
+[debug] [2022-05-10T20:12:45.572Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-10T20:12:45.572Z] > authorizing via signed-in user (yyaustin@bu.edu)
 [info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
-[debug] [2022-05-09T20:04:40.985Z] [hub] writing locator at /var/folders/kt/3dcnzd4j0k3btw6148wb8htr0000gn/T/hub-boston-main-streets.json
-[debug] [2022-05-09T20:04:40.992Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets [none]
-[debug] [2022-05-09T20:04:41.247Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets 200
-[debug] [2022-05-09T20:04:41.248Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets {"projectId":"boston-main-streets","projectNumber":"418881851460","displayName":"boston-main-streets","name":"projects/boston-main-streets","resources":{"hostingSite":"boston-main-streets","realtimeDatabaseInstance":"boston-main-streets-default-rtdb"},"state":"ACTIVE"}
-[debug] [2022-05-09T20:04:41.248Z] database rules config:  [{"instance":"boston-main-streets-default-rtdb","rules":"/Users/austinwang/Projects/se-bpda-main-streets/boston-main-streets-backend/database.rules.json"}]
-[debug] [2022-05-09T20:04:41.250Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2022-05-09T20:04:41.250Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-05-09T20:04:41.251Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2022-05-09T20:04:41.251Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/austinwang/.cache/firebase/emulators/firebase-database-emulator-v4.7.3.jar","--host","localhost","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/austinwang/.cache/firebase/emulators/firebase-database-emulator-v4.7.3.jar\",\"--host\",\"localhost\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[debug] [2022-05-10T20:12:45.584Z] [hub] writing locator at /var/folders/kt/3dcnzd4j0k3btw6148wb8htr0000gn/T/hub-boston-main-streets.json
+[debug] [2022-05-10T20:12:45.591Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets [none]
+[debug] [2022-05-10T20:12:46.022Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets 200
+[debug] [2022-05-10T20:12:46.022Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/boston-main-streets {"projectId":"boston-main-streets","projectNumber":"418881851460","displayName":"boston-main-streets","name":"projects/boston-main-streets","resources":{"hostingSite":"boston-main-streets","realtimeDatabaseInstance":"boston-main-streets-default-rtdb"},"state":"ACTIVE"}
+[debug] [2022-05-10T20:12:46.023Z] database rules config:  [{"instance":"boston-main-streets-default-rtdb","rules":"/Users/austinwang/Projects/se-bpda-main-streets/boston-main-streets-backend/database.rules.json"}]
+[debug] [2022-05-10T20:12:46.025Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-05-10T20:12:46.025Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-10T20:12:46.025Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-05-10T20:12:46.025Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/austinwang/.cache/firebase/emulators/firebase-database-emulator-v4.7.3.jar","--host","localhost","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/austinwang/.cache/firebase/emulators/firebase-database-emulator-v4.7.3.jar\",\"--host\",\"localhost\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
 [info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2022-05-09T20:04:42.146Z] 16:04:42.145 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
- {"metadata":{"emulator":{"name":"database"},"message":"16:04:42.145 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
-[debug] [2022-05-09T20:04:42.244Z] 16:04:42.244 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
- {"metadata":{"emulator":{"name":"database"},"message":"16:04:42.244 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\n"}}
+[debug] [2022-05-10T20:12:46.820Z] 16:12:46.818 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"16:12:46.818 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2022-05-10T20:12:46.915Z] 16:12:46.915 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"16:12:46.915 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\n"}}
 [warn] ⚠  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
-[debug] [2022-05-09T20:04:47.897Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-05-09T20:04:47.897Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-05-09T20:04:47.897Z] Starting Emulator UI with command {"binary":"node","args":["/Users/austinwang/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/austinwang/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2022-05-10T20:12:52.251Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-10T20:12:52.252Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-10T20:12:52.252Z] Starting Emulator UI with command {"binary":"node","args":["/Users/austinwang/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/austinwang/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2022-05-09T20:04:47.995Z] Web / API server started at localhost:4001
+[debug] [2022-05-10T20:12:52.345Z] Web / API server started at localhost:4001
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
-[debug] [2022-05-09T20:04:48.160Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=boston-main-streets-default-rtdb  
+[debug] [2022-05-10T20:12:52.514Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=boston-main-streets-default-rtdb  
  {
   "rules": {
     ".read": "now < 1653883200000",  // 2022-5-30
     ".write": "now < 1653883200000",  // 2022-5-30
   }
 }
-[debug] [2022-05-09T20:04:48.515Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"boston-main-streets-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"d32d3ec7-8bd5-40bf-b513-68201af24b95"}
+[debug] [2022-05-10T20:12:52.793Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"boston-main-streets-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"a8d0919f-6a2b-41bc-8520-5807d6cbf41d"}
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │

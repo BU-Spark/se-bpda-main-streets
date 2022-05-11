@@ -19,7 +19,7 @@ const BusinessesBoard = () => {
         business.business_name.toLowerCase().includes(keyWord.toLowerCase())
     ))
     const user = useSelector(({ user }) => user)
-    const currentWindowSize = useSelector(state => state.windowSize)
+    const isExpanded = useSelector(state => state.windowSize)
     const dispatch = useDispatch()
 
     // handle view, update and back
@@ -37,13 +37,13 @@ const BusinessesBoard = () => {
 
     // update the number of business cards in a single column depending on window size
     useEffect(() => {
-        if (currentWindowSize === true) {
+        if (isExpanded === true) {
             setContainerSize(6)
         } 
         else {
             setContainerSize(3)
         }
-    }, [currentWindowSize])
+    }, [isExpanded])
 
 
     if (modificationMode) {
@@ -71,9 +71,6 @@ const BusinessesBoard = () => {
                     <Grid item xs={12} sm={6} md={4} lg={containerSize}>
                         <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
                             <Row>
-                                <Col>
-                                    <Button variant="link" onClick={() => handleView()}>Website</Button>
-                                </Col>
                                 <Col>
                                     {
                                         user
