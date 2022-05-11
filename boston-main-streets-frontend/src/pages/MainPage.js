@@ -14,7 +14,7 @@ const MainPage = () => {
 
     return (
         <div>
-            <TopBar />
+        <TopBar />
             <Container fluid>
                 <Row>
                     <Col xs={isExpanded === true ? smallSize : largeSize}>
@@ -27,6 +27,6 @@ const MainPage = () => {
             </Container>
         </div>
     )
-}
+    }
 
 export default MainPage
