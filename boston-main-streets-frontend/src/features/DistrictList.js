@@ -44,7 +44,7 @@ const DistrictList = () => {
     return (
         <Form>
             <Box sx={{ bgcolor: 'white', width: '50vh' }}>
-                <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', maxHeight: '20vh'}}>
+                <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', maxHeight: '20vh', marginLeft: '3px', paddingRight: '2px'}}>
                     {bostonDistrictsName.map((name, index) => {
                         if (name === districtName) {
                             return (
