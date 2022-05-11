@@ -4,7 +4,7 @@ Boston Main Streets District Viewer is a project from the BPDA Research Division
 
 This is part of a broader initiative to understand the current environment in Boston. More research produced by the Boston Planning and Development Agency can be found on the BPDA Research Website: www.bostonplans.org/research
 
-Visit the deployed Boston Main Street District Viewer [here]()
+Visit the deployed Boston Main Street District Viewer [here](https://se-bpda-main-streets.herokuapp.com/)
 
 Team members:
 
