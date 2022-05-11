@@ -44,7 +44,7 @@ const EmploymentBoard = () => {
         marginTop: '10px',
     };
     return (
-        <Grid container spacing={1}>
+        <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '80vh'}} sx={{mt: 0.5}}>
             {cardTitles.map((card, index) => (
                 <Grid item key={index} xs={12} sm={6} md={6} lg={isExpanded == true ? topSmallSize : largeSize}>
                     <CardItem title={card.title} text={card.text} />
