@@ -8,14 +8,14 @@ import LineGraph from "../components/LineGraph";
 const EmploymentBoard = () => {
 
     // calcuate summary
-    const districtName = useSelector(({district}) => district)
-    const businesses = useSelector(({business}) => business)
-    const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a+b, 0) 
-    const totalBusiness = businesses.length  
+    const districtName = useSelector(({ district }) => district)
+    const businesses = useSelector(({ business }) => business)
+    const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a + b, 0)
+    const totalBusiness = businesses.length
     const averageEmp = Math.floor(totalEmp / totalBusiness).toLocaleString('en-US')
 
     // chart data
-    const boardData = useSelector(({boardData}) => boardData)
+    const boardData = useSelector(({ boardData }) => boardData)
 
     // other indicators
     const isExpanded = useSelector(state => state.windowSize)
@@ -44,7 +44,6 @@ const EmploymentBoard = () => {
         marginTop: '10px',
     };
     return (
-        <>
         <Grid container spacing={1}>
             {cardTitles.map((card, index) => (
                 <Grid item key={index} xs={12} sm={6} md={6} lg={isExpanded == true ? topSmallSize : largeSize}>
@@ -59,7 +58,7 @@ const EmploymentBoard = () => {
             {(districtName !== "Boston") ? (
                 <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Accordion>
-                        <Accordion.Item eventKey="1">
+                        <Accordion.Item eventKey="1"  style={{ marginBottom: '8px' }}>
                             <Accordion.Header>Mobility</Accordion.Header>
                             <Accordion.Body>
                                 {boardData.mobility && (
@@ -78,9 +77,8 @@ const EmploymentBoard = () => {
                     </Accordion>
                 </Grid>
             ) : <></>}
-            </Grid>
-        </>
+        </Grid>
     )
-    }
+}
 
 export default EmploymentBoard
