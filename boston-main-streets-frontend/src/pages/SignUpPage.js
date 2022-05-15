@@ -4,6 +4,7 @@ import UserForm from "../components/UserForm";
 import { createUser } from "../reducers/userReducer";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import TopBar from "../components/TopBar";
 
 const SignUpPage = () => {
 
@@ -25,13 +26,17 @@ const SignUpPage = () => {
     }
 
     return (
-        <div>
+        <>
+        <TopBar/>
+        <div style={{ maxWidth : 400, marginLeft : 'auto', marginRight : 'auto', marginTop : '10%', textAlign : 'center' }}>
             <h3>Sign Up</h3>
             <UserForm handleSubmit={handleSignUp} ref={userFormRef}>
                 <Button variant="primary" type="submit">Sign Up</Button>
-                <Button variant="secondary" onClick={() => history.push("/")}>Back</Button>
+                <br/> or <br/>
+                <Button variant="secondary" onClick={() => history.push("/")}>Back to Map</Button>
             </UserForm>
         </div>
+        </>
     )
 }
 

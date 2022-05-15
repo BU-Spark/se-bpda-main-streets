@@ -18,6 +18,8 @@ const BusinessesBoard = () => {
     const businessData = useSelector(({ business }) => business).filter((business) => (
         business.business_name.toLowerCase().includes(keyWord.toLowerCase())
     ))
+    //setDisplayBusiness(businessData.slice(0, 20));
+    const [displayBusiness, setDisplayBusiness] = useState(businessData.reverse().slice(0, 20));
     const user = useSelector(({ user }) => user)
     const isExpanded = useSelector(state => state.windowSize)
     const dispatch = useDispatch()
@@ -39,7 +41,7 @@ const BusinessesBoard = () => {
     useEffect(() => {
         if (isExpanded === true) {
             setContainerSize(6)
-        } 
+        }
         else {
             setContainerSize(3)
         }
@@ -65,24 +67,44 @@ const BusinessesBoard = () => {
 
     return (
         <>
-        <FormControl type="search" onChange={({target}) => setKeyWord(target.value)} placeholder="Search" value={keyWord} />
-                <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '80vh'}} sx={{mt: 0.5}}>
-                    {businessData.map((business, index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={containerSize}>
-                        <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
-                            <Row>
-                                <Col>
-                                    {
-                                        user
-                                            ? <Button variant="link" onClick={() => handleUpdate(business)}>Update</Button>
-                                            : <></>
-                                    }
-                                </Col>
-                            </Row>
-                        </CardItem>
-                    </Grid>
-                ))}
-        </Grid>
+            <FormControl type="search" onChange={({ target }) => {
+                setKeyWord(target.value)
+                setDisplayBusiness(businessData.reverse().filter((business) => (
+                    business.business_name.toLowerCase().includes(target.value.toLowerCase())
+                )).reverse().slice(0, 20))
+            }} placeholder="Search" value={keyWord} />
+            <div>
+
+                <Grid container spacing={1} style={{ flexGrow: '1', overflowY: 'scroll', overflowX: 'hidden', maxHeight: '70vh' }} sx={{ mt: 0.5 }}>
+
+                    {displayBusiness.map((business, index) => (
+                        <Grid item xs={12} sm={6} md={4} lg={containerSize}>
+                            <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
+                                <Row>
+                                    <Col>
+                                        {
+                                            user
+                                                ? <Button variant="link" onClick={() => handleUpdate(business)}>Update</Button>
+                                                : <></>
+                                        }
+                                    </Col>
+                                </Row>
+                            </CardItem>
+                        </Grid>
+                    ))}
+
+                </Grid>
+                <Button variant="link"
+                    onClick={() => {
+                        // concat 20 from business data to displayBusiness
+                        setDisplayBusiness(displayBusiness.concat(businessData.slice(displayBusiness.length, displayBusiness.length + 20)));
+                    }}
+                    style={{
+                        marginLeft: 'auto',
+                    }}
+                >Load More
+                </Button>
+            </div>
         </>
     )
 }

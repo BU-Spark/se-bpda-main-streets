@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import MainPage from "./pages/MainPage";
 import UploadPage from "./pages/UploadPage";
+
 import './style.css';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
 
     // set user status
     dispatch(initUser())
+    console.log(user);
   }, [dispatch])
 
   return (
@@ -39,6 +41,7 @@ const App = () => {
       <Route path={"/login"}>
         {(!user) ? <LoginPage /> : <Redirect to={"/"} />}
       </Route>
+      
       <Route path={"/upload"}>
         <UploadPage />
       </Route>

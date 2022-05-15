@@ -2,7 +2,10 @@ require('dotenv').config()
 const { initializeApp } = require('firebase/app')
 const { getDatabase, connectDatabaseEmulator } = require('firebase/database')
 
+
 const PORT = process.env.PORT || 3001
+
+console.log('PORT', PORT);
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_apiKey,
     authDomain: process.env.REACT_APP_authDomain,

@@ -4,7 +4,7 @@ import { userLogin } from "../reducers/userReducer";
 import UserForm from "../components/UserForm";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-
+import TopBar from "../components/TopBar";
 const LoginPage = () => {
 
     // redux
@@ -26,12 +26,19 @@ const LoginPage = () => {
 
     return (
         <div>
+            <TopBar/>
+        <div style={{ maxWidth : 400, marginLeft : 'auto', marginRight : 'auto', marginTop : '10%', textAlign : 'center' }}>
             <h3>Login</h3>
             <UserForm handleSubmit={handleLogin} ref={userFormRef}>
+                <div style={{textAlign : 'center' }}>
                 <Button variant="primary" type="submit">Login</Button>
+                <br/>
+                or
+                <br/>
                 <Button variant="secondary" onClick={() => history.push("/signup")}>Create an account</Button>
-                <Button variant="secondary" onClick={() => history.push("/")}>Back</Button>
+                </div>
             </UserForm>
+        </div>
         </div>
     )
 }
