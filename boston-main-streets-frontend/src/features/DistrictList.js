@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { nameRule } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const DistrictList = () => {
     // redux and router hooks
     const dispatch = useDispatch()
     const history = useHistory()
-
+    const [selectedDistrict, setSelectedDistrict] = useState(null);
     // wait for loading
     if (!districtName || !bostonDistricts) {
         return (
@@ -36,6 +36,9 @@ const DistrictList = () => {
 
     // handle list selection
     const handleChange = (name) => {
+        // if name === districtname set null
+        
+        setSelectedDistrict(name)
         dispatch(changeDistrict(name))
         dispatch(getSpendingData(name))
         dispatch(getMobilityData(name))
@@ -44,27 +47,19 @@ const DistrictList = () => {
     return (
         <Form>
             <Box sx={{ bgcolor: 'white', width: '50vh' }}>
+                <h2 style={{ padding : 12, fontSize : 18 }}>Main Street Neighborhoods
+                </h2>
                 <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', maxHeight: '20vh', marginLeft: '3px', paddingRight: '2px'}}>
                     {bostonDistrictsName.map((name, index) => {
-                        if (name === districtName) {
                             return (
                                 <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
                                     <Form.Check
-                                        label={name.replace('-', ' ')} name="list" type="radio" checked
+                                        label={name === "Dudley-Square" ? "Roxbury" : name.replace('-', ' ')} name="list" type="radio" checked={name === districtName}
                                         id={`inline-list-${index}`} onChange={() => handleChange(name)}
                                     />
                                 </Grid>
                             )
-                        } else {
-                            return (
-                                <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-                                    <Form.Check
-                                        label={name.replace('-', ' ')} name="list" type="radio"
-                                        id={`inline-list-${index}`} onChange={() => handleChange(name)}
-                                    />
-                                </Grid>
-                            )
-                        }
+                        
                     })}
                 </Grid>
             </Box>

@@ -30,7 +30,7 @@ const MainMap = () => {
 
     // local color
     const localStyle = {
-        "color": "red"
+        "color": "#CC0062"
     }
 
     if (!bostonBoundary || !bostonDistricts) {
@@ -41,7 +41,7 @@ const MainMap = () => {
 
     return (
         <MapItem key={districtName} center={center} zoom={zoom}>
-            <GeoJSON data={bostonBoundary} />
+            <GeoJSON data={bostonBoundary} style={{ color : "#B2BED3", fillOpacity : 0.1, fill : "#3388ff" }}/> 
             <GeoJSON key={districtName} data={districtData} style={localStyle} />
             {mapBusiness && (
                 <Marker position={[mapBusiness.latitude, mapBusiness.longitude]} />

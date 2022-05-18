@@ -10,7 +10,15 @@ const EmploymentBoard = () => {
     // calcuate summary
     const districtName = useSelector(({ district }) => district)
     const businesses = useSelector(({ business }) => business)
-    const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a + b, 0)
+    //const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a + b, 0)  
+    // aggregate businesses.estimated_employment and save into totalEmp
+    let totalEmp=0;
+    businesses.forEach(element => {
+        if((typeof element.estimated_employment) === "number"){
+            totalEmp += element.estimated_employment
+        }
+    });
+    
     const totalBusiness = businesses.length
     const averageEmp = Math.floor(totalEmp / totalBusiness).toLocaleString('en-US')
 
@@ -22,7 +30,6 @@ const EmploymentBoard = () => {
     const topSmallSize = 6;
     const butSmallSize = 12;
     const largeSize = 4;
-
 
     const cardTitles = [
         { title: "Estimated Number of Employees:", text: totalEmp.toLocaleString('en-US') },
@@ -61,16 +68,20 @@ const EmploymentBoard = () => {
                         <Accordion.Item eventKey="1"  style={{ marginBottom: '8px' }}>
                             <Accordion.Header>Mobility</Accordion.Header>
                             <Accordion.Body>
-                                {boardData.mobility && (
+                                {boardData.mobility ? (
                                     <LineGraph data={boardData.mobility} labelName="date" dataName="data" />
+                                ) : (
+                                        <div>Mobility data not available for neighborhood</div>
                                 )}
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>Spending</Accordion.Header>
                             <Accordion.Body>
-                                {boardData.spending && (
+                                {boardData.spending ? (
                                     <LineGraph data={boardData.spending} labelName="date" dataName="data" />
+                                ) : (
+                                        <div>Spending data not available for neighborhood</div>
                                 )}
                             </Accordion.Body>
                         </Accordion.Item>

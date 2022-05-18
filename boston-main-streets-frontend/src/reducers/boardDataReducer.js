@@ -13,7 +13,14 @@ const boardDataReducer = (state = {"spending": null, "mobility": null}, action) 
 
 export const getSpendingData = (districtName) => {
     return async (dispatch) => {
-        const data = await dataService.getData("spending", districtName)
+       
+        let data;
+        try {
+            data = await dataService.getData("spending", districtName)
+        } catch (error) {
+            console.log(error);
+        }
+        
         dispatch({
             type: "GET_SPENDING_DATA",
             data: {
@@ -25,7 +32,12 @@ export const getSpendingData = (districtName) => {
 
 export const getMobilityData = (districtName) => {
     return async (dispatch) => {
-        const data = await dataService.getData("mobility", districtName)
+        let data;
+        try {
+            data = await dataService.getData("mobility", districtName)
+        } catch (error) {
+            console.log(error);
+        }
         dispatch({
             type: "GET_MOBILITY_DATA",
             data: {

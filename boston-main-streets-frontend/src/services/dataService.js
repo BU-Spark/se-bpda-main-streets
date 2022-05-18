@@ -5,7 +5,13 @@ const baseURL = '/api/data'
 
 const getData = async (dataType, districtName) => {
     const res = await axios.get(`${baseURL}/${dataType}/${districtName}`)
-    return res.data
+    if (res.data){
+        return res.data;
+    }
+    else {
+        return null;
+    }
+    //return res.data
 }
 
 const updateData = async (dataType, districtName, data) => {

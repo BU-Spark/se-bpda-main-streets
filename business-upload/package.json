@@ -1,0 +1,16 @@
+{
+  "name": "business-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "BusinessUpload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@firebase/app": "^0.7.24",
+    "@firebase/database": "^0.13.0",
+    "firebase": "^9.8.1"
+  }
+}

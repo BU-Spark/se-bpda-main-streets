@@ -59,7 +59,7 @@ const DashBoard = () => {
     const tabStyle = {
         textTransform: 'capitalize',
         color: 'black',
-        backgroundColor: 'white'
+        
     }
 
     const districtNameStyle = isExpanded === true ? { fontSize: 36, marginTop: '10px' } : { fontSize: 72, marginTop: '10px' }
@@ -72,12 +72,13 @@ const DashBoard = () => {
                     <Button variant="outline-primary" onClick={() => handleWindowSize()}><i className={expandButton}></i></Button>
                 </Grid>
                 <Tabs
+                    style={{ backgroundColor: "#f9f9f9"}}
                     value={tab}
                     onChange={handleChange}
                     TabIndicatorProps={{ style: { backgroundColor: "0066CC" } }}
                     variant='scrollable'
                 >
-                    <Tab value="Employment Data" label="Employment Data" style={tabStyle} />
+                    <Tab value="Employment Data" label="Economic Activity" style={tabStyle} />
                     <Tab value="Life & Culture" label="Life & Culture" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
                 </Tabs>
@@ -85,9 +86,9 @@ const DashBoard = () => {
             <div>
                 <h1 style={districtNameStyle}>
                     {districtName.replace('-', ' ').toUpperCase()}
-                    {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
+                    {/* {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
                         <img src={logo} width={logoStyle} alt="logo" style={{marginBottom: '8px', marginLeft: '3px'}} />
-                    </Button> : <></>}
+                    </Button> : <></>} */}
                 </h1>
             </div>
 
