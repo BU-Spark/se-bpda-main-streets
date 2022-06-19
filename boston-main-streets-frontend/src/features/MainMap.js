@@ -12,6 +12,8 @@ const MainMap = () => {
     const bostonDistricts = useSelector(({ mapDistricts }) => mapDistricts)
     const mapBusiness = useSelector(({ mapBusiness }) => mapBusiness)
 
+    
+
     // filter district
     const districtData = (districtName === "Boston")
         ? bostonDistricts
@@ -21,11 +23,23 @@ const MainMap = () => {
                 district.properties.DIST_NAME.replace(nameRule, "-") === districtName
             ))
         }
-
+        
+    let midValX;
+    let midValY;
+    if (districtName !== "Boston") {
+        let mid = districtData.features[0].geometry.coordinates[0].length / 2;
+        mid = Math.floor(mid);
+        midValX = (districtData.features[0].geometry.coordinates[0][mid][1] + districtData.features[0].geometry.coordinates[0][0][1]) / 2;
+        midValY = (districtData.features[0].geometry.coordinates[0][mid][0] + districtData.features[0].geometry.coordinates[0][0][0]) / 2;
+    }
     const center = (districtName === "Boston")
         ? bostonCenter
-        : [districtData.features[0].geometry.coordinates[0][0][1], districtData.features[0].geometry.coordinates[0][0][0]]
+        : [midValX, midValY];
 
+
+    
+    console.log("boston center", bostonCenter);
+    console.log("district data",districtData);
     const zoom = (districtName === "Boston") ? 11 : 15
 
     // local color

@@ -43,7 +43,7 @@ const App = () => {
       </Route>
       
       <Route path={"/upload"}>
-      {(!user) ? <UploadPage /> : <Redirect to={"/"} />}
+      {(user) ? <UploadPage /> : <Redirect to={"/"} />}
       </Route>
       <Route path={"/"}>
         <MainPage />

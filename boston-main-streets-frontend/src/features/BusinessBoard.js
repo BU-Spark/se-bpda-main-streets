@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Button, FormControl } from "react-bootstrap";
 import CardItem from "../components/BusinessCardItem";
 import BusinessForm from "./BusinessForm";
-import { removeMapBusiness, setMapBusiness } from "../reducers/mapBusinessReducer";
+import { setMapBusiness } from "../reducers/mapBusinessReducer";
 import Grid from '@mui/material/Grid'
 
 const BusinessesBoard = () => {
@@ -13,20 +13,36 @@ const BusinessesBoard = () => {
     const [oneBusiness, setOneBusiness] = useState(null)
     const [keyWord, setKeyWord] = useState('')
     const [containerSize, setContainerSize] = useState(3)
+    
+    
 
     // redux states: business, user
-    const businessData = useSelector(({ business }) => business).filter((business) => (
-        business.business_name.toLowerCase().includes(keyWord.toLowerCase())
-    ))
-    //setDisplayBusiness(businessData.slice(0, 20));
-    const [displayBusiness, setDisplayBusiness] = useState(businessData.reverse().slice(0, 20));
+    
     const user = useSelector(({ user }) => user)
     const isExpanded = useSelector(state => state.windowSize)
     const dispatch = useDispatch()
 
+    const businessData = useSelector(({ business }) => business).filter((business) => {
+        const val = business.business_name.toLowerCase().includes(keyWord.toLowerCase());
+        return val;
+    })
+
+    let businessStuff = useSelector(({ business }) => business);
+
+    const [displayBusiness, setDisplayBusiness] = useState(businessData.reverse().slice(0, 20));
+
+    // update display business when neighborhood is changed
+    useEffect(() => {
+        setDisplayBusiness(businessData.slice(0, 20));
+    }
+    ,[businessStuff]);
+
+    
+
     // handle view, update and back
     const handleView = (business) => {
         dispatch(setMapBusiness(business))
+        
     }
     const handleUpdate = (business) => {
         setOneBusiness(business)
@@ -36,18 +52,23 @@ const BusinessesBoard = () => {
         setOneBusiness(null)
         setModificationMode(false)
     }
+    
+    
 
     // update the number of business cards in a single column depending on window size
     useEffect(() => {
+        
         if (isExpanded === true) {
             setContainerSize(6)
         }
         else {
             setContainerSize(3)
         }
+        
     }, [isExpanded])
 
-
+    // update displayBusiness when business data is updated
+    
     if (modificationMode) {
         return (
             <Row>
@@ -69,7 +90,7 @@ const BusinessesBoard = () => {
         <>
             <FormControl type="search" onChange={({ target }) => {
                 setKeyWord(target.value)
-                setDisplayBusiness(businessData.reverse().filter((business) => (
+                setDisplayBusiness(displayBusiness.reverse().filter((business) => (
                     business.business_name.toLowerCase().includes(target.value.toLowerCase())
                 )).reverse().slice(0, 20))
             }} placeholder="Search" value={keyWord} />

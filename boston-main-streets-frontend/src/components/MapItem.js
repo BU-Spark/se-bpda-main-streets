@@ -26,7 +26,7 @@ const modalStyle = {
 function ChildModal() {
     const [open, setOpen] = React.useState(false);
     let bColor = open === false ? '#0066cc' : '#CC0062'
-    const aboutButtonStyle = { backgroundColor: bColor, color: 'white' };
+    const aboutButtonStyle = { backgroundColor: bColor, color: 'white', position : 'fixed', bottom : 50, left : 50 };
     const closeButtonStyle = { color: 'black' };
     const handleOpen = () => {
         setOpen(true);

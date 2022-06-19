@@ -9,6 +9,7 @@ const mapBusinessReducer = (state = null, action) => {
     }
 }
 
+
 export default mapBusinessReducer
 
 export const setMapBusiness = (business) => {

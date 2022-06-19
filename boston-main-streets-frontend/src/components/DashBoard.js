@@ -79,7 +79,7 @@ const DashBoard = () => {
                     variant='scrollable'
                 >
                     <Tab value="Employment Data" label="Economic Activity" style={tabStyle} />
-                    <Tab value="Life & Culture" label="Life & Culture" style={tabStyle} />
+                    <Tab value="Neighborhood" label="Neighborhood" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
                 </Tabs>
             </Grid>
@@ -91,6 +91,7 @@ const DashBoard = () => {
                     </Button> : <></>} */}
                 </h1>
             </div>
+
 
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
