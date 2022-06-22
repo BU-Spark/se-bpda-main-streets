@@ -100,7 +100,7 @@ const BusinessesBoard = () => {
 
                     {displayBusiness.map((business, index) => (
                         <Grid item xs={12} sm={6} md={4} lg={containerSize}>
-                            <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
+                            <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address} description={business.NAICS_2017_6digit_desc}>
                                 <Row>
                                     <Col>
                                         {
