@@ -49,5 +49,5 @@ export const districts = [
 
 // data types
 export const dataTypes = [
-    "spending", "mobility"
+    "spending", "mobility", "industries"
 ]

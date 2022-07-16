@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import EmploymentBoard from "../features/EmploymentBoard";
 import BusinessBoard from "../features/BusinessBoard";
+import NeighborhoodBoard from "../features/NeighborhoodBoard";
 import { removeMapBusiness } from "../reducers/mapBusinessReducer";
 import Button from '@mui/material/Button';
 import Tabs from '@mui/material/Tabs';
@@ -85,7 +86,8 @@ const DashBoard = () => {
             </Grid>
             <div>
                 <h1 style={districtNameStyle}>
-                    {districtName.replace('-', ' ').toUpperCase()}
+                    { districtName === "Boston" ? "Boston Main St ".toUpperCase() : ( districtName === "Dudley-Square" ? "Roxbury".toUpperCase() : districtName.toUpperCase()) }
+                    
                     {/* {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
                         <img src={logo} width={logoStyle} alt="logo" style={{marginBottom: '8px', marginLeft: '3px'}} />
                     </Button> : <></>} */}
@@ -95,6 +97,7 @@ const DashBoard = () => {
 
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
+            {tab === "Neighborhood" && <NeighborhoodBoard />}
         </Box>
     )
 }

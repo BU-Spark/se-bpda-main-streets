@@ -1,27 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, CardGroup, Accordion } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CardItem from "../components/CardItem";
 import Grid from '@mui/material/Grid'
 import LineGraph from "../components/LineGraph";
+import { Bar, Radar } from 'react-chartjs-2';
 
 const EmploymentBoard = () => {
 
     // calcuate summary
     const districtName = useSelector(({ district }) => district)
     const businesses = useSelector(({ business }) => business)
+    let industryData = {};
     //const totalEmp = businesses.map((business) => business.estimated_employment).reduce((a, b) => a + b, 0)  
     // aggregate businesses.estimated_employment and save into totalEmp
     let totalEmp=0;
+    
     businesses.forEach(element => {
         if((typeof element.estimated_employment) === "number"){
             totalEmp += element.estimated_employment
         }
+        if (element.NAICS_2017_2digit_desc in industryData) {
+            industryData[element.NAICS_2017_2digit_desc] += 1; 
+        } else {
+            industryData[element.NAICS_2017_2digit_desc] = 1
+        }
     });
+    
     
     const totalBusiness = businesses.length
     const averageEmp = Math.floor(totalEmp / totalBusiness).toLocaleString('en-US')
-
+    console.log(industryData);
+    console.log(Object.keys(industryData).sort((a, b) => industryData[b] - industryData[a]).slice(0, 3));
+    // get values of above keys
+    const industryDataValues = Object.keys(industryData).sort((a, b) => industryData[b] - industryData[a]).slice(0, 3).map((key) => industryData[key])
+    const industryDataLabels = Object.keys(industryData).sort((a, b) => industryData[b] - industryData[a]).slice(0, 3).map((key) => key)
+    console.log(industryDataValues);
     // chart data
     const boardData = useSelector(({ boardData }) => boardData)
 
@@ -62,7 +76,7 @@ const EmploymentBoard = () => {
                     <CardItem title={card.title} text={card.text} />
                 </Grid>
             ))}
-            {(districtName !== "Boston") ? (
+            {(districtName !== "Boston2") ? (
                 <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Accordion>
                         <Accordion.Item eventKey="1"  style={{ marginBottom: '8px' }}>
@@ -83,6 +97,25 @@ const EmploymentBoard = () => {
                                 ) : (
                                         <div>Spending data not available for neighborhood</div>
                                 )}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="3">
+                            <Accordion.Header>Industries</Accordion.Header>
+                            <Accordion.Body>
+                                <Bar data={{
+                                    // get top 5 industries
+                                    
+                                    labels: Object.keys(industryData).sort((a, b) => industryData[b] - industryData[a]).slice(0, 3),
+                                    datasets: [{
+                                        data: Object.keys(industryData).sort((a, b) => industryData[b] - industryData[a]).slice(0, 3).map((key) => industryData[key]),
+                                        backgroundColor: [
+                                            '#FF6384',
+                                            '#36A2EB',
+                                            '#FFCE56',
+                                         
+                                        ]
+                                    }],
+                                }} />
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
