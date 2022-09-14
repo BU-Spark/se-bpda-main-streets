@@ -32,6 +32,7 @@ const UploadPage = () => {
                 ))
                 setJsonList(data);
                 setConverting(false);
+                console.log(data);
             }
         })
     }

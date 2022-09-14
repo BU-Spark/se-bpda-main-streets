@@ -25,27 +25,29 @@ export const auth = getAuth(app)
 
 // districts
 export const districts = [
-    "Allston-Village",
-    "Bowdoin-Geneva",
-    "Brighton",
-    "Centre-South",
-    "Chinatown",
-    "Dudley-Square",
-    "East-Boston",
-    "Egleston-Square",
-    "Fields-Corner",
-    "Four-Corners",
-    "Greater-Ashmont",
-    "Grove-Hall",
-    "Hyde-Park",
-    "Mattapan",
-    "Mission-Hill",
-    "Roslindale-Village",
-    "Three-Squares",
-    "Uphams-Corner",
-    "Washington-St-Gateway",
-    "West-Roxbury"
+    'Allston-Village',
+    'Bowdoin-Geneva',
+    'Brighton',
+    'Chinatown',
+    'East-Boston',
+    'Egleston-Square',
+    'Fields-Corner',
+    'Four-Corners',
+    'Greater-Ashmont',
+    'Greater-Grove-Hall',
+    'Hyde-Park',
+    'JP-Centre-South',
+    'Mattapan-Square',
+    'Mission-Hill',
+    'Roslindale-Village',
+    'Roxbury',
+    'Three-Squares',
+    'Uphams-Corner',
+    'Washington-St-Gateway',
+    'West-Roxbury'
 ]
+
+
 
 // data types
 export const dataTypes = [

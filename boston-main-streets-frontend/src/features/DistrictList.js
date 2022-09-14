@@ -30,7 +30,7 @@ const DistrictList = () => {
 
     // get boston districts data
     let bostonDistrictsName = bostonDistricts.features.map((district) => (district.properties.DIST_NAME.replace(nameRule, "-")))
-    
+    console.log(bostonDistrictsName);
     // sort districts alphabetically
     bostonDistrictsName.sort();
 
