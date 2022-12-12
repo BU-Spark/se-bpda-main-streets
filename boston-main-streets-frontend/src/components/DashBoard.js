@@ -15,7 +15,7 @@ import { expand, collapse } from "../services/windowService"
 import logo from '../static/logo.png';
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Grid from '@mui/material/Grid'
-
+import Demographics from "../features/Demographics";
 
 
 
@@ -82,6 +82,7 @@ const DashBoard = () => {
                     <Tab value="Employment Data" label="Economic Activity" style={tabStyle} />
                     <Tab value="Neighborhood" label="Neighborhood" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
+                    <Tab value="Employment" label="Employment" style={tabStyle} />
                 </Tabs>
             </Grid>
             <div>
@@ -98,6 +99,7 @@ const DashBoard = () => {
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
             {tab === "Neighborhood" && <NeighborhoodBoard />}
+            {tab === "Employment" && <Demographics />}
         </Box>
     )
 }

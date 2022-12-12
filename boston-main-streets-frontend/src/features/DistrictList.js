@@ -53,7 +53,7 @@ const DistrictList = () => {
 
     return (
         <Form>
-            <Box sx={{ bgcolor: 'white', width: '50vh' }}>
+            <Box sx={{ bgcolor: 'white', width: '50vh', padding: 2 }}>
                 <h2 style={{ padding : 12, fontSize : 18 }}>Main Street Districts
                 </h2>
                 <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', marginLeft: '3px', paddingRight: '2px'}}>
