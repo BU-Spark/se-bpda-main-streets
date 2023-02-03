@@ -16,7 +16,7 @@ const DistrictList = () => {
     // redux states
     const districtName = useSelector(({ district }) => district)
     const bostonDistricts = useSelector(({ mapDistricts }) => mapDistricts)
-
+    console.log(districtName);
     // redux and router hooks
     const dispatch = useDispatch()
     const history = useHistory()
@@ -29,7 +29,10 @@ const DistrictList = () => {
     }
 
     // get boston districts data
-    const bostonDistrictsName = bostonDistricts.features.map((district) => (district.properties.DIST_NAME.replace(nameRule, "-")))
+    let bostonDistrictsName = bostonDistricts.features.map((district) => (district.properties.DIST_NAME.replace(nameRule, "-")))
+    console.log(bostonDistrictsName);
+    // sort districts alphabetically
+    bostonDistrictsName.sort();
 
     // list white background
     const listStyle = {
@@ -50,10 +53,16 @@ const DistrictList = () => {
 
     return (
         <Form>
-            <Box sx={{ bgcolor: 'white', width: '50vh' }}>
-                <h2 style={{ padding : 12, fontSize : 18 }}>Main Street Neighborhoods
+            <Box sx={{ bgcolor: 'white', width: '50vh', padding: 2 }}>
+                <h2 style={{ padding : 12, fontSize : 18 }}>Main Street Districts
                 </h2>
                 <Grid container spacing={1} style={{ flexGrow: '1', overflow: 'auto', marginLeft: '3px', paddingRight: '2px'}}>
+                                <Grid key={0} item xs={12} sm={6} md={4} lg={3}>
+                                    <Form.Check
+                                        label="Boston Main St." name="list" type="radio" checked={districtName === "Boston"}
+                                        id={`inline-list-${0}`} onChange={() => handleChange("Boston")}
+                                    />
+                                </Grid>
                     {bostonDistrictsName.map((name, index) => {
                             return (
                                 <Grid key={index} item xs={12} sm={6} md={4} lg={3}>

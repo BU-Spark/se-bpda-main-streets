@@ -12,9 +12,7 @@ const BusinessesBoard = () => {
     const [modificationMode, setModificationMode] = useState(false)
     const [oneBusiness, setOneBusiness] = useState(null)
     const [keyWord, setKeyWord] = useState('')
-    const [containerSize, setContainerSize] = useState(3)
-    
-    
+    const [containerSize, setContainerSize] = useState(3);
 
     // redux states: business, user
     
@@ -22,7 +20,10 @@ const BusinessesBoard = () => {
     const isExpanded = useSelector(state => state.windowSize)
     const dispatch = useDispatch()
 
+    
     const businessData = useSelector(({ business }) => business).filter((business) => {
+        
+        if (!business.business_name) return null;
         const val = business.business_name.toLowerCase().includes(keyWord.toLowerCase());
         return val;
     })
@@ -100,7 +101,7 @@ const BusinessesBoard = () => {
 
                     {displayBusiness.map((business, index) => (
                         <Grid item xs={12} sm={6} md={4} lg={containerSize}>
-                            <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address}>
+                            <CardItem key={index} title={<Button variant="link" onClick={() => handleView(business)}> {setBusinessUpperCase(business.business_name)} </Button>} text={business.street_address} description={business.NAICS_2017_6digit_desc}>
                                 <Row>
                                     <Col>
                                         {

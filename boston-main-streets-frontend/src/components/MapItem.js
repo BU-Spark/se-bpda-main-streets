@@ -60,6 +60,7 @@ function ChildModal() {
                         <Typography id="modal-modal-description" sx={{ mt: 3, mb: 5, ml: 2 }}>
                             {aboutProject2}
                         </Typography>
+                        <p style={{fontSize:10}}>v 1.2.1</p>
                         <>
                             <img src="https://anad.org/wp-content/uploads/2017/09/BU-logo.png" width="100" height="70"></img>
                             <img src="https://www.southbostontoday.com/wp-content/uploads/2020/04/1200px-BPDA_Logo-696x238.png" width="200" height="70"></img>

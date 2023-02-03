@@ -15,7 +15,8 @@ import './style.css';
 const App = () => {
 
   // redux states
-  const user = useSelector(({user}) => user)
+  const user = useSelector(({user}) => user);
+  console.log('user', user);
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const App = () => {
       </Route>
       
       <Route path={"/upload"}>
-      {(user) ? <UploadPage /> : <Redirect to={"/"} />}
+        <UploadPage />
       </Route>
       <Route path={"/"}>
         <MainPage />

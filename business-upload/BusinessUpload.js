@@ -33,7 +33,7 @@ const setBusinessUpperCase = (business_name) => {
 }
 
 const initBusinesses = async () => {
-  const businesses = require("./data/MainStreet_BusinessList.json");
+  const businesses = require("./data/MainStreet_BusinessList_.json");
   
   for (const business of businesses) {
     const {
@@ -44,15 +44,18 @@ const initBusinesses = async () => {
     //   NAICS_2017_2digit_desc,
       ...businessData
     } = business;
+
     businessData.mainstreet = business.mainstreet.replace(nameRule, "-");
     businessData.business_name = setBusinessUpperCase(business.business_name);
-    const key = push(child(ref(db), "business-new")).key;
+    const key = push(child(ref(db), "business-neww")).key;
     console.log(key);
     businessData.id = key;
-    businessData['ZIP_code'] = businessData.zip;
-   
+    //businessData['ZIP_code'] = businessData.zip;
+    const put = `business-neww/${businessData.mainstreet}/${key}`.toString();
+    console.log(typeof put);
+    delete businessData[''];
     await set(
-      ref(db, `business-new/${businessData.mainstreet}/${key}`),
+      ref(db, put),
       businessData
     );
     console.log(`${business.FIELD1} added`);

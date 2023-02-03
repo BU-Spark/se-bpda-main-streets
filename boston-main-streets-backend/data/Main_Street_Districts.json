@@ -1993,8 +1993,8 @@
             "properties": {
                 "OBJECTID": 3,
                 "ROW_ID": null,
-                "NAME": "EAST BOSTON",
-                "DIST_NAME": "East Boston",
+                "NAME": "EAST-BOSTON",
+                "DIST_NAME": "East-Boston",
                 "AREA": null,
                 "LEN": null
             },
@@ -3539,8 +3539,8 @@
             "properties": {
                 "OBJECTID": 6,
                 "ROW_ID": null,
-                "NAME": "DUDLEY SQUARE",
-                "DIST_NAME": "Dudley Square",
+                "NAME": "Roxbury",
+                "DIST_NAME": "Roxbury",
                 "AREA": null,
                 "LEN": null
             },
@@ -4639,8 +4639,8 @@
             "properties": {
                 "OBJECTID": 8,
                 "ROW_ID": null,
-                "NAME": "CENTRE/SOUTH",
-                "DIST_NAME": "Centre/South",
+                "NAME": "JP/CENTRE/SOUTH",
+                "DIST_NAME": "JP/Centre/South",
                 "AREA": null,
                 "LEN": null
             },
@@ -6264,7 +6264,7 @@
                 "OBJECTID": 10,
                 "ROW_ID": null,
                 "NAME": "GREATER GROVE HALL",
-                "DIST_NAME": "Grove Hall",
+                "DIST_NAME": "Greater Grove Hall",
                 "AREA": null,
                 "LEN": null
             },
@@ -14553,8 +14553,8 @@
             "properties": {
                 "OBJECTID": 19,
                 "ROW_ID": null,
-                "NAME": "MATTAPAN",
-                "DIST_NAME": "Mattapan",
+                "NAME": "MATTAPAN-SQUARE",
+                "DIST_NAME": "Mattapan-Square",
                 "AREA": null,
                 "LEN": null
             },

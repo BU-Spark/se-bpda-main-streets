@@ -5,7 +5,7 @@ const { ref, set, push, child, get } = require('firebase/database')
 
 // get all
 businessRouter.get('/', async (req, res) => {
-    const snapshot = await get(child(ref(fireDb), 'business-new'))
+    const snapshot = await get(child(ref(fireDb), 'business-neww'))
     if (snapshot.exists()) {
         const districtNames = Object.keys(snapshot.val())
         let data = []
@@ -23,7 +23,7 @@ businessRouter.get('/', async (req, res) => {
 // get by district
 businessRouter.get('/:districtName', async (req, res) => {
     const districtName = req.params.districtName
-    const snapshot = await get(child(ref(fireDb), `business-new/${districtName}`))
+    const snapshot = await get(child(ref(fireDb), `business-neww/${districtName}`))
     if (snapshot.exists()) {
         res.status(200).json(Object.values(snapshot.val()))
     } else {
@@ -37,7 +37,7 @@ businessRouter.get('/:districtName', async (req, res) => {
 businessRouter.get(('/:districtName/:id'), async (req, res) => {
     const districtName = req.params.districtName
     const id = req.params.id
-    const snapshot = await get(child(ref(fireDb), `business-new/${districtName}/${id}`))
+    const snapshot = await get(child(ref(fireDb), `business-neww/${districtName}/${id}`))
     if (snapshot.exists()) {
         res.status(200).json(snapshot.val())
     } else {
@@ -53,7 +53,7 @@ businessRouter.put('/:districtName/:id', async (req, res) => {
     const districtName = req.params.districtName
     const id = req.params.id
     const newData = req.body
-    await set(ref(fireDb, `business-new/${districtName}/${id}`), newData)
+    await set(ref(fireDb, `business-neww/${districtName}/${id}`), newData)
     res.status(200).json(newData)
 })
 

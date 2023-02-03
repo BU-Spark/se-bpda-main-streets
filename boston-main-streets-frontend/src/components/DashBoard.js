@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import EmploymentBoard from "../features/EmploymentBoard";
 import BusinessBoard from "../features/BusinessBoard";
+import NeighborhoodBoard from "../features/NeighborhoodBoard";
 import { removeMapBusiness } from "../reducers/mapBusinessReducer";
 import Button from '@mui/material/Button';
 import Tabs from '@mui/material/Tabs';
@@ -14,7 +15,7 @@ import { expand, collapse } from "../services/windowService"
 import logo from '../static/logo.png';
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Grid from '@mui/material/Grid'
-
+import Demographics from "../features/Demographics";
 
 
 
@@ -81,11 +82,13 @@ const DashBoard = () => {
                     <Tab value="Employment Data" label="Economic Activity" style={tabStyle} />
                     <Tab value="Neighborhood" label="Neighborhood" style={tabStyle} />
                     <Tab value="Businesses" label="Businesses" style={tabStyle} />
+                    <Tab value="Employment" label="Employment" style={tabStyle} />
                 </Tabs>
             </Grid>
             <div>
                 <h1 style={districtNameStyle}>
-                    {districtName.replace('-', ' ').toUpperCase()}
+                    { districtName === "Boston" ? "Boston Main St ".toUpperCase() : ( districtName === "Dudley-Square" ? "Roxbury".toUpperCase() : districtName.toUpperCase()) }
+                    
                     {/* {districtName === 'Boston' ? <Button variant="text" size="small" onClick={() => handleClick()}>
                         <img src={logo} width={logoStyle} alt="logo" style={{marginBottom: '8px', marginLeft: '3px'}} />
                     </Button> : <></>} */}
@@ -95,6 +98,8 @@ const DashBoard = () => {
 
             {tab === "Employment Data" && <EmploymentBoard />}
             {tab === "Businesses" && <BusinessBoard />}
+            {tab === "Neighborhood" && <NeighborhoodBoard />}
+            {tab === "Employment" && <Demographics />}
         </Box>
     )
 }
